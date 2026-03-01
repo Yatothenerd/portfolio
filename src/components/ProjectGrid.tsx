@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
-import { PROJECTS } from '../constants';
+import { PROJECTS } from '../common/constants';
 
 const ProjectGrid: React.FC = () => {
   return (

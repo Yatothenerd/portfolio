@@ -1,7 +1,6 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI } from '@google/genai';
 import { Terminal, Cpu, Sparkles, Send } from 'lucide-react';
 
 const LabAI: React.FC = () => {
@@ -26,16 +25,16 @@ const LabAI: React.FC = () => {
         model: 'gemini-3-flash-preview',
         contents: currentQuery,
         config: {
-            systemInstruction: "You are the AI brain of YATO GALLERY. Response style: High-tech, cold, poetic, under 50 words. Focus on the convergence of glass, light, and code.",
+            systemInstruction: 'You are the AI brain of YATO GALLERY. Response style: High-tech, cold, poetic, under 50 words. Focus on the convergence of glass, light, and code.',
             temperature: 0.9,
         }
       });
 
-      const text = result.text || "Uplink lost in transmission.";
+      const text = result.text || 'Uplink lost in transmission.';
       setResponse(text);
-      setLogs(prev => [...prev, `[RESOLVED] Prism data acquired.`]);
+      setLogs(prev => [...prev, '[RESOLVED] Prism data acquired.']);
     } catch (err) {
-      setLogs(prev => [...prev, `[FAULT] Refraction error.`]);
+      setLogs(prev => [...prev, '[FAULT] Refraction error.']);
     } finally {
       setIsTyping(false);
     }
@@ -80,12 +79,12 @@ const LabAI: React.FC = () => {
                   <div className="relative w-24 h-24">
                     <motion.div 
                       animate={{ rotate: 360 }}
-                      transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                      transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
                       className="absolute inset-0 border border-dashed border-zinc-700 rounded-full"
                     />
                     <motion.div 
                       animate={{ rotate: -360 }}
-                      transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                      transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
                       className="absolute inset-4 border border-dashed border-zinc-800 rounded-full"
                     />
                     <div className="absolute inset-0 flex items-center justify-center">

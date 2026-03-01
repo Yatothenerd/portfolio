@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -10,6 +9,7 @@ import CustomCursor from './components/CustomCursor';
 import LabAI from './components/LabAI';
 import BackToTop from './components/BackToTop';
 import BackgroundSpace from './components/BackgroundSpace';
+import UnderMaintenanceSection from './components/UnderMaintenanceSection';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 
 const App: React.FC = () => {
@@ -45,27 +45,30 @@ const App: React.FC = () => {
       <Navbar />
       
       <main className="select-none relative z-10">
-        <Hero />
+        {/* Under Maintenance Section */}
+        <UnderMaintenanceSection />
+
+        {/* <Hero /> */}
         
-        <ProjectGrid />
+        {/* <ProjectGrid /> */}
 
         {/* Dynamic Separator */}
-        <section className="py-12 overflow-hidden border-y border-zinc-900/50 bg-black/20 backdrop-blur-sm">
+        {/* <section className="py-12 overflow-hidden border-y border-zinc-900/50 bg-black/20 backdrop-blur-sm">
           <motion.div 
             style={{ x: marqueeX }}
             className="whitespace-nowrap flex gap-12"
           >
             {[1, 2, 3, 4, 5].map(i => (
               <span key={i} className="text-[10vw] font-serif font-bold uppercase tracking-tighter opacity-10 select-none">
-                AESTHETICS THROUGH TECHNOLOGY • HIGH END DIGITAL •&nbsp;
+                AESTHETICS THROUGH TECHNOLOGY  HIGH END DIGITAL \u00a0
               </span>
             ))}
           </motion.div>
-        </section>
+        </section> */}
 
-        <StudioSection />
+        {/* <StudioSection /> */}
         
-        <section id="labs" className="py-32 px-6">
+        {/* <section id="labs" className="py-32 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col items-center text-center space-y-6 mb-16">
               <motion.div
@@ -83,13 +86,14 @@ const App: React.FC = () => {
             
             <LabAI />
           </div>
-        </section>
+        </section> 
+        */}
 
-        <ContactSection />
+        {/* <ContactSection /> */}
 
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

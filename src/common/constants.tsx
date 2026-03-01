@@ -1,4 +1,3 @@
-
 import { Project, NavItem } from './types';
 
 export const PROJECTS: Project[] = [

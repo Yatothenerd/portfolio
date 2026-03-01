@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, Variants, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { X, ArrowUpRight, Minus, MousePointer2, Scan, PenTool, Play, Image as ImageIcon } from 'lucide-react';
-import { Project } from '../types';
+import { Project } from '../common/types';
 
 interface ProjectCardProps {
   project: Project;
@@ -65,7 +64,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     exit: { 
       opacity: 0, 
       backdropFilter: 'blur(0px)',
-      transition: { duration: 0.6, ease: "easeInOut" }
+      transition: { duration: 0.6, ease: 'easeInOut' }
     }
   };
 

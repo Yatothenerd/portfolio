@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { motion, useSpring, useMotionValue, useTransform } from 'framer-motion';
 
@@ -13,13 +12,11 @@ const InteractiveBlob: React.FC<{
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Smooth springs for liquid-like movement
   const springX = useSpring(mouseX, { mass, stiffness, damping });
   const springY = useSpring(mouseY, { mass, stiffness, damping });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      // Offset by half size to center the blob
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
     };
@@ -47,7 +44,6 @@ const InteractiveBlob: React.FC<{
 const BackgroundSpace: React.FC = () => {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-black">
-      {/* Primary White Core - Faster, tighter response */}
       <InteractiveBlob 
         color="#ffffff" 
         size="45vw" 
@@ -57,7 +53,6 @@ const BackgroundSpace: React.FC = () => {
         opacity={0.1}
       />
       
-      {/* Crimson Refraction - Slower, heavier "magnetic" drag */}
       <InteractiveBlob 
         color="#DC143C" 
         size="55vw" 
@@ -67,7 +62,6 @@ const BackgroundSpace: React.FC = () => {
         opacity={0.08}
       />
 
-      {/* Deep Zinc Ambient - Very slow, massive feel */}
       <InteractiveBlob 
         color="#3f3f46" 
         size="70vw" 
@@ -77,17 +71,14 @@ const BackgroundSpace: React.FC = () => {
         opacity={0.15}
       />
 
-      {/* Static Atmospheric Gradients */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(20,20,20,0)_0%,rgba(0,0,0,1)_100%)]" />
       
-      {/* Moving Scanning Line */}
       <motion.div 
         animate={{ y: ['-100%', '200%'] }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
         className="absolute inset-0 w-full h-[30vh] bg-gradient-to-b from-transparent via-white/[0.02] to-transparent z-[1]"
       />
 
-      {/* Horizontal Subtle Grid lines (Static) */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <div className="w-full h-full" style={{ 
           backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px)',

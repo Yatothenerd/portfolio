@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import anime from 'animejs';
@@ -13,7 +12,7 @@ const Hero: React.FC = () => {
       const text = titleRef.current.innerText;
       titleRef.current.innerHTML = '';
       
-      const words = ["SUN", "TROPICWATHNA"];
+      const words = ['SUN', 'TROPICWATHNA'];
       
       titleRef.current.innerHTML = words.map((word, wIdx) => {
         const letters = word.split('').map(char => `<span class="letter inline-block">${char}</span>`).join('');
@@ -26,7 +25,7 @@ const Hero: React.FC = () => {
           translateY: [100, 0],
           translateZ: 0,
           opacity: [0, 1],
-          easing: "easeOutExpo",
+          easing: 'easeOutExpo',
           duration: 1400,
           delay: (el, i) => 300 + 30 * i
         });
@@ -107,7 +106,7 @@ const Hero: React.FC = () => {
                 opacity: { delay: 1.5, duration: 1 },
                 scale: { delay: 1.5, duration: 1 },
                 x: { delay: 1.5, duration: 1 },
-                y: { repeat: Infinity, duration: 5, ease: "easeInOut" }
+                y: { repeat: Infinity, duration: 5, ease: 'easeInOut' }
               }}
               className="font-script text-3xl md:text-6xl text-[#DC143C] absolute top-[10%] left-[70%] md:left-[65%] pointer-events-none whitespace-nowrap drop-shadow-[0_0_40px_rgba(220,20,60,0.8)] z-20"
             >

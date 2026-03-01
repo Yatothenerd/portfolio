@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -25,7 +24,7 @@ const SocialLink: React.FC<{ label: string; href: string }> = ({ label, href }) 
         initial: { scaleX: 0 },
         hover: { scaleX: 1 }
       }}
-      transition={{ duration: 0.3, ease: "circOut" }}
+      transition={{ duration: 0.3, ease: 'circOut' }}
       className="absolute -bottom-1 left-0 w-full h-[1px] bg-white origin-left"
     />
   </motion.a>

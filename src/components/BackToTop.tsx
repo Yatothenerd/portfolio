@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
@@ -8,7 +7,6 @@ const BackToTop: React.FC = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      // Show button after scrolling down 400px
       if (window.scrollY > 400) {
         setIsVisible(true);
       } else {
@@ -43,18 +41,16 @@ const BackToTop: React.FC = () => {
           className="fixed bottom-10 right-10 z-[80] w-14 h-14 flex items-center justify-center prism-glass prism-border rounded-full shadow-2xl group interactive"
           aria-label="Back to top"
         >
-          {/* Subtle reflection sweep */}
           <div className="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
             <motion.div 
               animate={{ x: ['-100%', '100%'] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
+              transition={{ repeat: Infinity, duration: 3, ease: 'linear' }}
               className="w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
             />
           </div>
           
           <ArrowUp className="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors duration-300" />
           
-          {/* Liquid Aura behind the button */}
           <div className="absolute -inset-2 bg-white/5 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </motion.button>
       )}

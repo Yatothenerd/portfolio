@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useSpring, useMotionValue, AnimatePresence } from 'framer-motion';
 
@@ -7,18 +6,15 @@ const CustomCursor: React.FC = () => {
   const [isMoving, setIsMoving] = useState(false);
   const moveTimeoutRef = useRef<number | null>(null);
 
-  // Use Motion Values for smooth, performance-optimized movement
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Add spring physics for that "Active Theory" fluid feel
-  const springConfig = { stiffness: 500, damping: 28, mass: 0.5 };
+  const springConfig = { stiffness: 500, damping: 15, mass: 1 };
   const lightSpringConfig = { stiffness: 150, damping: 30 };
   
   const springX = useSpring(cursorX, springConfig);
   const springY = useSpring(cursorY, springConfig);
   
-  // Smoother, laggier spring for the large environmental light
   const lightX = useSpring(cursorX, lightSpringConfig);
   const lightY = useSpring(cursorY, lightSpringConfig);
 
@@ -27,7 +23,6 @@ const CustomCursor: React.FC = () => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
 
-      // Detect movement for the "blink" effect
       setIsMoving(true);
       if (moveTimeoutRef.current) window.clearTimeout(moveTimeoutRef.current);
       moveTimeoutRef.current = window.setTimeout(() => {
@@ -54,7 +49,6 @@ const CustomCursor: React.FC = () => {
 
   return (
     <>
-      {/* Environmental Light Source (Aura) */}
       <motion.div
         className="fixed top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none z-[5] mix-blend-screen opacity-20"
         style={{
@@ -70,7 +64,6 @@ const CustomCursor: React.FC = () => {
         }}
       />
 
-      {/* Main Sparkle Cursor */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center mix-blend-difference"
         style={{
@@ -87,13 +80,12 @@ const CustomCursor: React.FC = () => {
             opacity: isMoving ? [1, 0.4, 1, 0.6, 1] : 1,
           }}
           transition={{
-            rotate: { repeat: Infinity, duration: 2, ease: "linear" },
+            rotate: { repeat: Infinity, duration: 2, ease: 'linear' },
             opacity: { repeat: isMoving ? Infinity : 0, duration: 0.1 },
             scale: { type: 'spring', stiffness: 300, damping: 20 }
           }}
           className="relative flex items-center justify-center"
         >
-          {/* Sparkle SVG from user photo */}
           <svg 
             width="32" 
             height="32" 
@@ -108,7 +100,6 @@ const CustomCursor: React.FC = () => {
             />
           </svg>
           
-          {/* Core Glow Dot */}
           <motion.div 
             animate={{ scale: [1, 1.5, 1] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
